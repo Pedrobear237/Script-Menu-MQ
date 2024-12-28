@@ -1,8 +1,3 @@
-/*
- Script para Adobe Illustrator
- Genera un formulario para recolectar información y crea carpetas siguiendo una estructura específica.
-*/
-
 #target illustrator
 
 function createPreviewMenu() {
@@ -98,9 +93,9 @@ function createPreviewMenu() {
     var footerGroup = dlg.add("group");
     footerGroup.orientation = "column";
     footerGroup.alignment = "center";
-    footerGroup.add("statictext", undefined, "Desarrollado por Pedro M. /// Test para MQ Printing");
+    footerGroup.add("statictext", undefined, "Desarrollo: Pedro M. /// Test para MQ Print México");
 
-    // Obtener dimensiones automáticamente
+    // Obtener dimensiones de la mesa inicial
     var doc = app.activeDocument;
     if (doc) {
         var artboard = doc.artboards[0]; // Primer mesa de trabajo
@@ -200,9 +195,9 @@ function createPreviewMenu() {
 
                     // Guardar en formato .pdf
                     var pdfSaveOptions = new PDFSaveOptions();
-                    pdfSaveOptions.compatibility = PDFCompatibility.ACROBAT6; // Compatibilidad con Acrobat 6 (PDF 1.5)
-                    pdfSaveOptions.preserveEditability = false; // Evitar que se guarde con capacidad de edición (reduce tamaño)
-                    pdfSaveOptions.optimization = true; // Optimización para reducir tamaño del archivo
+                    pdfSaveOptions.compatibility = PDFCompatibility.ACROBAT6; // predeterminado con Acrobat 6 (PDF 1.5) o el preajuste seleccionado en la config del usuario
+                    pdfSaveOptions.preserveEditability = false; // Evitar que se guarde con capacidad de edición (pa los malayas rekls)
+                    pdfSaveOptions.optimization = true; // Compresión LZW predeterminada pa reducir tamaño del archivo
                     doc.saveAs(pdfFile, pdfSaveOptions);
 
                     // Exportar en formato .tif
